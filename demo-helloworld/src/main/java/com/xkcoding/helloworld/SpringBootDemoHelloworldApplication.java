@@ -36,4 +36,18 @@ public class SpringBootDemoHelloworldApplication {
         }
         return StrUtil.format("Hello, {}!", who);
     }
+  /**
+     * Hello apple
+     *
+     * @param who 参数，非必须
+     * @return Hello, ${who}
+     */
+    @GetMapping("/helloapple")
+    public String sayHello(@RequestParam(required = false, name = "yo") String yo) {
+        if (StrUtil.isBlank(yo)) {
+            who = "apple";
+        }
+        return StrUtil.format("Hello, {}!", yo);
+    }
+  
 }
